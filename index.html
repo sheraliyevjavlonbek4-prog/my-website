@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Javlonbek | Shaxsiy sayt</title>
 
     <style>
@@ -15,52 +14,42 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f4f6f8;
+            background: #f4f4f4;
             color: #222;
             line-height: 1.6;
         }
 
         header {
-            background: #111827;
+            background: #111;
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
 
         header h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 38px;
+            margin-bottom: 10px;
         }
 
         header p {
             font-size: 18px;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 25px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
         }
 
         section {
-            max-width: 900px;
-            margin: auto;
-            padding: 50px 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        h2 {
-            font-size: 30px;
-            margin-bottom: 20px;
+        section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -68,18 +57,39 @@
             background: white;
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         .card h3 {
             margin-bottom: 10px;
         }
 
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
         footer {
-            background: #111827;
+            background: #111;
             color: white;
             text-align: center;
             padding: 25px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
@@ -89,42 +99,58 @@
 <header>
     <h1>Salom, men Javlonbek 👋</h1>
     <p>Bu mening shaxsiy web-saytim.</p>
-
-    <a class="btn" href="#about">Men haqimda</a>
 </header>
 
-<section id="about">
-    <h2>Men haqimda 👤</h2>
-
-    <p>
-        Internet, texnologiya, sport va yangi narsalarni o‘rganishga qiziqaman.
-        Bu sayt orqali foydali ma'lumotlar va loyihalarimni ulashaman.
-    </p>
-</section>
-
 <section>
-    <h2>Qiziqishlarim 🚀</h2>
+    <h2>👨‍💻 Men haqimda</h2>
 
     <div class="cards">
 
         <div class="card">
-            <h3>🏋️ Sport</h3>
+            <h3>Men haqimda</h3>
             <p>
-                Fitness va bodybuilding bilan shug‘ullanishni yaxshi ko‘raman.
+                Men Javlonbekman. Internet, texnologiya,
+                sport va yangi narsalarni o‘rganishga qiziqaman.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎯 Maqsadlarim</h3>
+            <p>
+                O‘z ustimda ishlash, yangi bilimlar olish
+                va foydali loyihalar yaratish.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>🔥 Qiziqishlarim</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>💪 Fitness</h3>
+            <p>
+                Sport va bodybuilding mening sevimli
+                mashg‘ulotlarimdan biri.
             </p>
         </div>
 
         <div class="card">
             <h3>💻 Texnologiya</h3>
             <p>
-                Dasturlash, web-saytlar va yangi texnologiyalarni o‘rganaman.
+                Web saytlar, internet va dasturlashni
+                o‘rganishga qiziqaman.
             </p>
         </div>
 
         <div class="card">
-            <h3>🌐 Internet</h3>
+            <h3>💰 Online loyihalar</h3>
             <p>
-                Internet orqali yangi imkoniyatlar va foydali loyihalarni izlayman.
+                Internet orqali foydali loyihalar yaratish
+                va yangi imkoniyatlarni o‘rganmoqdaman.
             </p>
         </div>
 
@@ -137,19 +163,39 @@
     <div class="cards">
 
         <div class="card">
-            <h3>🌐 Shaxsiy web-sayt</h3>
+            <h3>🌐 Shaxsiy web sayt</h3>
             <p>
-                Ushbu sayt — mening birinchi shaxsiy web-loyiham.
+                Ushbu saytni o‘zim o‘rganib,
+                GitHub Pages orqali yaratdim.
             </p>
         </div>
 
-        
-<div class="card">
-            <h3>💰 Online loyihalar</h3>
+        <div class="card">
+            <h3>📱 Internet loyihalar</h3>
             <p>
-                Internet orqali foydali loyihalar va daromad imkoniyatlarini
-                o‘rganmoqdaman.
+                Kelajakda yangi internet loyihalar
+                yaratishni rejalashtiryapman.
             </p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>📞 Bog‘lanish</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>💬 Telegram</h3>
+            <p>Men bilan Telegram orqali bog‘laning.</p>
+            <a class="btn" href="https://t.me/boykabo7">Telegram</a>
+        </div>
+
+        <div class="card">
+            <h3>📸 Instagram</h3>
+            <p>Fitness va boshqa loyihalarimni Instagramda kuzating.</p>
+            <a class="btn" href="https://instagram.com/_qorapantera34">Instagram</a>
         </div>
 
     </div>
@@ -161,22 +207,22 @@
 
 </body>
 </html>
-<section>
-    <h2>📞 Bog‘lanish</h2>
 
-    <div class="cards">
 
-        <div class="card">
-            <h3>💬 Telegram</h3>
-            <p>Men bilan Telegram orqali bog‘lanishingiz mumkin.</p>
-            <a class="btn" href="https://t.me/USERNAME">Telegram</a>
-        </div>
 
-        <div class="card">
-            <h3>📸 Instagram</h3>
-            <p>Fitness va boshqa loyihalarimni Instagram’da kuzating.</p>
-            <a class="btn" href="https://instagram.com/USERNAME">Instagram</a>
-        </div>
 
-    </div>
-</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
