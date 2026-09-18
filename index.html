@@ -1,18 +1,4 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
@@ -49,10 +35,61 @@
             font-size: 18px;
         }
 
-        section {
-            max-width: 1000px;
+        .layout {
+            max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .advertising {
+            background: white;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
+        }
+
+        .advertising h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .ad {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 14px 10px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .ad:hover {
+            transform: scale(1.04);
+        }
+
+        .tonpick {
+            background: #168cff;
+        }
+
+        .litepick {
+            background: #7b61ff;
+        }
+
+        .tronpick {
+            background: #e53935;
+        }
+
+        main section {
+            margin: 0 0 40px;
         }
 
         section h2 {
@@ -88,19 +125,22 @@
             border-radius: 8px;
         }
 
-        .btn:hover {
-            opacity: 0.8;
-        }
-
         footer {
             background: #111;
             color: white;
             text-align: center;
-            padding: 25px;
-            margin-top: 50px;
+            padding: 25px 15px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .advertising {
+                position: static;
+            }
+
             header h1 {
                 font-size: 30px;
             }
@@ -111,109 +151,86 @@
 <body>
 
 <header>
-    <h1>Salom, men Javlonbek 👋</h1>
-    <p>Bu mening shaxsiy web-saytim.</p>
+    <h1>Javlonbek</h1>
+    <p>Shaxsiy sayt</p>
 </header>
 
-<section>
-    <h2>👨‍💻 Men haqimda</h2>
+<div class="layout">
 
-    <div class="cards">
+    <!-- CHAP TOMON REKLAMA -->
+    <aside class="advertising">
+        <h2>📢 REKLAMA</h2>
 
-        <div class="card">
-            <h3>Men haqimda</h3>
-            <p>
-                Men Javlonbekman. Internet, texnologiya,
-                sport va yangi narsalarni o‘rganishga qiziqaman.
-            </p>
-        </div>
+        <a class="ad tonpick"
+           href="https://tonpick.game/faucet.php"
+           target="_blank"
+           rel="noopener noreferrer">
+            💎 TonPick
+        </a>
 
-        <div class="card">
-            <h3>🎯 Maqsadlarim</h3>
-            <p>
-                O‘z ustimda ishlash, yangi bilimlar olish
-                va foydali loyihalar yaratish.
-            </p>
-        </div>
+        <a class="ad litepick"
+           href="https://litepick.io/faucet.php"
+           target="_blank"
+           rel="noopener noreferrer">
+            ⚡ LitePick
+        </a>
 
-    </div>
-</section>
+        <a class="ad tronpick"
+           href="https://tronpick.io/faucet.php"
+           target="_blank"
+           rel="noopener noreferrer">
+            🔴 TronPick
+        </a>
+    </aside>
 
-<section>
-    <h2>🔥 Qiziqishlarim</h2>
+    <!-- ASOSIY KONTENT -->
+    <main>
 
-    <div class="cards">
+        <section>
+            <h2>Men haqimda</h2>
 
-        <div class="card">
-            <h3>💪 Fitness</h3>
-            <p>
-                Sport va bodybuilding mening sevimli
-                mashg‘ulotlarimdan biri.
-            </p>
-        </div>
+            <div class="card">
+                <h3>👋 Salom!</h3>
+                <p>
+                    Men Javlonbek. Bu mening shaxsiy saytim.
+                    Bu yerda loyihalarim, ijtimoiy tarmoqlarim
+                    va boshqa ma'lumotlarim bilan tanishishingiz mumkin.
+                </p>
+            </div>
+        </section>
 
-        <div class="card">
-            <h3>💻 Texnologiya</h3>
-            <p>
-                Web saytlar, internet va dasturlashni
-                o‘rganishga qiziqaman.
-            </p>
-        </div>
+        <section>
+            <h2>📱 Ijtimoiy tarmoqlar</h2>
 
-        <div class="card">
-            <h3>💰 Online loyihalar</h3>
-            <p>
-                Internet orqali foydali loyihalar yaratish
-                va yangi imkoniyatlarni o‘rganmoqdaman.
-            </p>
-        </div>
+            <div class="cards">
 
-    </div>
-</section>
+                <div class="card">
+                    <h3>💬 Telegram</h3>
+                    <p>Men bilan Telegram orqali bog‘laning.</p>
+                    <a class="btn"
+                       href="https://t.me/boykabo7"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Telegram
+                    </a>
+                </div>
 
-<section>
-    <h2>🚀 Loyihalarim</h2>
+                <div class="card">
+                    <h3>📸 Instagram</h3>
+                    <p>Fitness va boshqa loyihalarimni Instagramda kuzating.</p>
+                    <a class="btn"
+                       href="https://instagram.com/_qorapantera34"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Instagram
+                    </a>
+                </div>
 
-    <div class="cards">
+            </div>
+        </section>
 
-        <div class="card">
-            <h3>🌐 Shaxsiy web sayt</h3>
-            <p>
-                Ushbu saytni o‘zim o‘rganib,
-                GitHub Pages orqali yaratdim.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📱 Internet loyihalar</h3>
-            <p>
-                Kelajakda yangi internet loyihalar
-                yaratishni rejalashtiryapman.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<section>
-    <h2>📞 Bog‘lanish</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>💬 Telegram</h3>
-            <p>Men bilan Telegram orqali bog‘laning.</p>
-            <a class="btn" href="https://t.me/boykabo7">Telegram</a>
-        </div>
-
-        <div class="card">
-            <h3>📸 Instagram</h3>
-            <p>Fitness va boshqa loyihalarimni Instagramda kuzating.</p>
-            <a class="btn" href="https://instagram.com/_qorapantera34">Instagram</a>
-        </div>
-
-    </div>
-</section>
+    </main>
+</div>
 
 <footer>
     <p>© 2026 Javlonbek. Barcha huquqlar himoyalangan.</p>
@@ -221,6 +238,19 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
