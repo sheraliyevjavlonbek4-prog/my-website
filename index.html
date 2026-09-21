@@ -408,6 +408,7 @@ footer{
 </div>
 
 </div>
+<div id="live-clock">00:00:00</div>
 </nav>
 
 
@@ -652,6 +653,20 @@ function goTop(){
 
 </script>
 
+<script>
+function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString('uz-UZ', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    const clock = document.getElementById('live-clock');
+    if (clock) clock.textContent = time;
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
 </body>
 </html>
 
