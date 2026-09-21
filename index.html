@@ -8,161 +8,332 @@
 
 <style>
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #080b14;
+    --card: rgba(255,255,255,0.07);
+    --text: #ffffff;
+    --muted: #a9b0c3;
+    --accent: #00e5ff;
+    --accent2: #7c4dff;
+    --border: rgba(255,255,255,0.12);
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: #f2f4f7;
-    color: #222;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,229,255,0.12), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(124,77,255,0.15), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-header {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 45px 20px;
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,11,20,0.75);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
 }
 
-header h1 {
-    font-size: 38px;
-    margin-bottom: 8px;
-}
-
-header p {
-    font-size: 18px;
-    color: #ccc;
-}
-
-.layout {
-    max-width: 1200px;
-    margin: 35px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 25px;
-    align-items: start;
-}
-
-/* REKLAMA */
-.ad-box {
-    background: white;
-    padding: 18px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-    position: sticky;
-    top: 20px;
-}
-
-.ad-title {
-    text-align: center;
-    font-size: 21px;
+.logo {
+    font-size: 23px;
     font-weight: bold;
-    margin-bottom: 16px;
+    color: var(--accent);
 }
 
-.ad-card {
-    display: block;
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 50px;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: fadeUp 1.2s ease;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    box-shadow: 0 0 40px rgba(0,229,255,0.3);
+}
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 75px);
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, var(--accent), #ffffff, var(--accent2));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 19px;
+    max-width: 650px;
+    margin: auto;
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 30px;
     text-decoration: none;
     color: white;
-    padding: 17px 12px;
-    margin-bottom: 13px;
-    border-radius: 13px;
-    text-align: center;
-    font-weight: bold;
-    transition: 0.25s;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+    border: 1px solid var(--border);
+    transition: 0.3s;
 }
 
-.ad-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 18px rgba(0,0,0,0.18);
+.btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border: none;
 }
 
-.ad-card small {
-    display: block;
-    margin-top: 5px;
-    font-weight: normal;
-    opacity: 0.9;
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,229,255,0.2);
 }
 
-.tonpick {
-    background: #168cff;
-}
-
-.litepick {
-    background: #7057e8;
-}
-
-.tronpick {
-    background: #e53935;
-}
-
-/* ASOSIY QISM */
+/* SECTIONS */
 section {
-    margin-bottom: 35px;
+    padding: 90px 7%;
 }
 
-section h2 {
+.section-title {
     text-align: center;
-    margin-bottom: 22px;
-    font-size: 28px;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+/* CARDS */
+.cards {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
 .card {
-    background: white;
-    padding: 25px;
-    border-radius: 17px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    padding: 30px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 40px rgba(0,229,255,0.1);
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
 }
 
 .card h3 {
     margin-bottom: 10px;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+.card p {
+    color: var(--muted);
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 11px 20px;
-    background: #111;
-    color: white;
-    text-decoration: none;
-    border-radius: 9px;
+/* PROJECTS */
+.project {
+    position: relative;
+    overflow: hidden;
 }
 
-footer {
-    background: #111;
-    color: white;
+.project span {
+    color: var(--accent);
+    font-size: 13px;
+}
+
+/* CONTACT */
+.contact-box {
+    max-width: 800px;
+    margin: auto;
     text-align: center;
-    padding: 25px 15px;
+    padding: 45px 25px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 25px;
 }
 
-/* TELEFON */
+.socials {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social {
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.social:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+/* TOP BUTTON */
+#topBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
 @media (max-width: 700px) {
 
-    .layout {
-        grid-template-columns: 1fr;
-        padding: 0 15px;
+    nav {
+        padding: 16px 5%;
     }
 
-    .ad-box {
-        position: static;
+    .menu-btn {
+        display: block;
     }
 
-    header h1 {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+        background: rgba(8,11,20,0.96);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 90vh;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 70px 5%;
+    }
+
+    .section-title h2 {
         font-size: 30px;
-    }
-
-    .ad-card {
-        padding: 15px;
     }
 }
 </style>
@@ -170,118 +341,199 @@ footer {
 
 <body>
 
-<header>
-    <h1>Javlonbek</h1>
-    <p>Shaxsiy sayt</p>
-</header>
+<nav>
+    <div class="logo">JAVLONBEK</div>
 
-<div class="layout">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-    <!-- REKLAMA PANELI -->
-    <aside class="ad-box">
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Bosh sahifa</a></li>
+        <li><a href="#about" onclick="closeMenu()">Men haqimda</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Loyihalar</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Bog‘lanish</a></li>
+    </ul>
+</nav>
 
-        <div class="ad-title">
-            📢 REKLAMA
+<!-- HOME -->
+<header class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="avatar">👨‍💻</div>
+
+        <h1>Salom, men <span>Javlonbek</span> 👋</h1>
+
+        <p>
+            Internet, texnologiya, sport va yangi narsalarni
+            o‘rganishga qiziqadigan oddiy insonman.
+        </p>
+
+        <div class="buttons">
+            <a href="#about" class="btn primary">Men haqimda</a>
+            <a href="#projects" class="btn">Loyihalarim</a>
         </div>
 
-        <a class="ad-card tonpick"
-           href="https://tonpick.game/faucet.php"
-           target="_blank"
-           rel="noopener noreferrer">
+    </div>
+</header>
 
-            💎 TonPick
+<!-- ABOUT -->
+<section id="about">
 
-            <small>Faucetga kirish →</small>
-        </a>
+    <div class="section-title">
+        <h2>Men haqimda</h2>
+        <p>Mening qiziqishlarim va maqsadlarim</p>
+    </div>
 
-        <a class="ad-card litepick"
-           href="https://litepick.io/faucet.php"
-           target="_blank"
-           rel="noopener noreferrer">
+    <div class="cards">
 
-            ⚡ LitePick
+        <div class="card">
+            <div class="card-icon">🏋️</div>
+            <h3>Sport</h3>
+            <p>
+                Sport va bodybuilding orqali o‘zimni
+                yanada kuchli va intizomli qilishga harakat qilaman.
+            </p>
+        </div>
 
-            <small>Faucetga kirish →</small>
-        </a>
+        <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Texnologiya</h3>
+            <p>
+                Internet, web-saytlar va yangi texnologiyalarni
+                o‘rganishga qiziqaman.
+            </p>
+        </div>
 
-        <a class="ad-card tronpick"
-           href="https://tronpick.io/faucet.php"
-           target="_blank"
-           rel="noopener noreferrer">
+        <div class="card">
+            <div class="card-icon">🚀</div>
+            <h3>Maqsadlar</h3>
+            <p>
+                Yangi narsalarni o‘rganish, loyihalar yaratish
+                va kelajakda katta natijalarga erishish.
+            </p>
+        </div>
 
-            🔴 TronPick
+    </div>
 
-            <small>Faucetga kirish →</small>
-        </a>
+</section>
 
-    </aside>
+<!-- PROJECTS -->
+<section id="projects">
 
-    <!-- ASOSIY KONTENT -->
-    <main>
+    <div class="section-title">
+        <h2>Loyihalarim</h2>
+        <p>Men yaratgan va kelajakda yaratadigan loyihalar</p>
+    </div>
 
-        <section>
-            <h2>Men haqimda</h2>
+    <div class="cards">
 
-            <div class="card">
-                <h3>👋 Salom!</h3>
+        <div class="card project">
+            <span>01 • WEB</span>
+            <h3>Shaxsiy web-sayt</h3>
+            <p>
+                Bu sayt mening internetdagi shaxsiy sahifam.
+                Bu yerda men haqimdagi ma’lumotlar va loyihalarim joylashadi.
+            </p>
+        </div>
 
-                <p>
-                    Men Javlonbek. Bu mening shaxsiy saytim.
-                    Bu yerda loyihalarim, ijtimoiy tarmoqlarim
-                    va boshqa ma'lumotlarim bilan tanishishingiz mumkin.
-                </p>
-            </div>
-        </section>
+        <div class="card project">
+            <span>02 • ONLINE</span>
+            <h3>Online loyihalar</h3>
+            <p>
+                Internet orqali daromad qilish va yangi
+                online loyihalarni sinab ko‘rish.
+            </p>
+        </div>
 
-        <section>
-            <h2>📱 Ijtimoiy tarmoqlar</h2>
+        <div class="card project">
+            <span>03 • FUTURE</span>
+            <h3>Kelajakdagi loyihalar</h3>
+            <p>
+                Yangi g‘oyalar va foydali internet loyihalari
+                ustida ishlash.
+            </p>
+        </div>
 
-            <div class="cards">
+    </div>
 
-                <div class="card">
-                    <h3>💬 Telegram</h3>
+</section>
 
-                    <p>
-                        Men bilan Telegram orqali bog‘laning.
-                    </p>
+<!-- CONTACT -->
+<section id="contact">
 
-                    <a class="btn"
-                       href="https://t.me/boykabo7"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Telegram
-                    </a>
-                </div>
+    <div class="section-title">
+        <h2>Bog‘lanish</h2>
+        <p>Men bilan ijtimoiy tarmoqlar orqali bog‘lanishingiz mumkin</p>
+    </div>
 
-                <div class="card">
-                    <h3>📸 Instagram</h3>
+    <div class="contact-box">
 
-                    <p>
-                        Fitness va boshqa loyihalarimni Instagramda kuzating.
-                    </p>
+        <h3>Javlonbek bilan bog‘laning 👋</h3>
 
-                    <a class="btn"
-                       href="https://instagram.com/_qorapantera34"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Instagram
-                    </a>
-                </div>
+        <div class="socials">
 
-            </div>
-        </section>
+            <a class="social"
+               href="https://t.me/boykabo7"
+               target="_blank">
+                Telegram
+            </a>
 
-    </main>
+            <a class="social"
+               href="https://instagram.com/_qorapantera34"
+               target="_blank">
+                Instagram
+            </a>
 
-</div>
+            <a class="social"
+               href="https://github.com/sheraliyevjavlonbek4-prog"
+               target="_blank">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 <footer>
     <p>© 2026 Javlonbek. Barcha huquqlar himoyalangan.</p>
 </footer>
 
+<button id="topBtn" onclick="goTop()">↑</button>
+
+<script>
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("active");
+}
+
+window.onscroll = function() {
+
+    const button = document.getElementById("topBtn");
+
+    if (document.documentElement.scrollTop > 300) {
+        button.style.display = "block";
+    } else {
+        button.style.display = "none";
+    }
+
+};
+
+function goTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
 </body>
 </html>
-
 
 
 
