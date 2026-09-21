@@ -1,3 +1,47 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -7,333 +51,337 @@
 <title>Javlonbek | Shaxsiy sayt</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+:root{
+    --bg:#080b14;
+    --card:rgba(255,255,255,.07);
+    --text:#fff;
+    --muted:#a9b0c3;
+    --accent:#00e5ff;
+    --accent2:#7c4dff;
+    --border:rgba(255,255,255,.12);
 }
 
-:root {
-    --bg: #080b14;
-    --card: rgba(255,255,255,0.07);
-    --text: #ffffff;
-    --muted: #a9b0c3;
-    --accent: #00e5ff;
-    --accent2: #7c4dff;
-    --border: rgba(255,255,255,0.12);
+body.light{
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --text:#101522;
+    --muted:#667085;
+    --border:rgba(0,0,0,.1);
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(0,229,255,0.12), transparent 30%),
-        radial-gradient(circle at 80% 10%, rgba(124,77,255,0.15), transparent 30%),
-        var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.4s;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
 /* NAVBAR */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(8,11,20,0.75);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(8,11,20,.8);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
 }
 
-.logo {
-    font-size: 23px;
-    font-weight: bold;
-    color: var(--accent);
+.nav-container{
+    max-width:1100px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.nav-links {
-    display: flex;
-    gap: 25px;
-    list-style: none;
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:var(--accent);
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-    transition: 0.3s;
+.nav-links{
+    display:flex;
+    gap:25px;
+    align-items:center;
 }
 
-.nav-links a:hover {
-    color: var(--accent);
+.nav-links a{
+    transition:.3s;
 }
 
-.menu-btn {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
+.nav-links a:hover{
+    color:var(--accent);
+}
+
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.mode-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    padding:8px 12px;
+    border-radius:20px;
+    cursor:pointer;
 }
 
 /* HERO */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 100px 20px 50px;
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px 50px;
+    background:
+    radial-gradient(circle at top,#17245c 0%,transparent 45%),
+    var(--bg);
 }
 
-.hero-content {
-    max-width: 850px;
-    animation: fadeUp 1.2s ease;
+.hero-content{
+    max-width:800px;
+    animation:heroIn 1s ease;
 }
 
-.avatar {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 25px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 55px;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    box-shadow: 0 0 40px rgba(0,229,255,0.3);
+.avatar{
+    width:120px;
+    height:120px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    box-shadow:0 0 40px rgba(0,229,255,.35);
 }
 
-.hero h1 {
-    font-size: clamp(40px, 8vw, 75px);
-    margin-bottom: 15px;
+.hero h1{
+    margin-top:25px;
+    font-size:48px;
 }
 
-.hero h1 span {
-    background: linear-gradient(90deg, var(--accent), #ffffff, var(--accent2));
-    -webkit-background-clip: text;
-    color: transparent;
+.hero h1 span{
+    color:var(--accent);
 }
 
-.hero p {
-    color: var(--muted);
-    font-size: 19px;
-    max-width: 650px;
-    margin: auto;
+.hero p{
+    margin:20px auto;
+    max-width:600px;
+    color:var(--muted);
+    font-size:18px;
 }
 
-.buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:25px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 13px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    color: white;
-    border: 1px solid var(--border);
-    transition: 0.3s;
+.btn{
+    padding:13px 24px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+    border:1px solid var(--border);
 }
 
-.btn.primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    border: none;
+.btn-primary{
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:white;
 }
 
-.btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0,229,255,0.2);
+.btn:hover{
+    transform:translateY(-4px);
 }
 
 /* SECTIONS */
-section {
-    padding: 90px 7%;
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:90px 20px;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 45px;
+.section-title{
+    text-align:center;
+    font-size:35px;
+    margin-bottom:50px;
 }
 
-.section-title h2 {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-
-.section-title p {
-    color: var(--muted);
+.section-title span{
+    color:var(--accent);
 }
 
 /* CARDS */
-.cards {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-.card {
-    padding: 30px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    transition: 0.4s;
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    transition:.4s;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-    box-shadow: 0 15px 40px rgba(0,229,255,0.1);
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
 
-.card-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
+.card-icon{
+    font-size:40px;
+    margin-bottom:15px;
 }
 
-.card h3 {
-    margin-bottom: 10px;
+.card h3{
+    margin-bottom:10px;
 }
 
-.card p {
-    color: var(--muted);
-}
-
-/* PROJECTS */
-.project {
-    position: relative;
-    overflow: hidden;
-}
-
-.project span {
-    color: var(--accent);
-    font-size: 13px;
+.card p{
+    color:var(--muted);
 }
 
 /* CONTACT */
-.contact-box {
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-    padding: 45px 25px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 25px;
+
+.contact{
+    text-align:center;
 }
 
-.socials {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+.socials{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-.social {
-    text-decoration: none;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: 1px solid var(--border);
-    transition: 0.3s;
+.social{
+    padding:14px 22px;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:30px;
+    transition:.3s;
 }
 
-.social:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-3px);
+.social:hover{
+    transform:translateY(-5px);
+    border-color:var(--accent);
 }
 
 /* FOOTER */
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
+
+footer{
+    text-align:center;
+    padding:30px 20px;
+    border-top:1px solid var(--border);
+    color:var(--muted);
 }
 
 /* TOP BUTTON */
-#topBtn {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 45px;
-    height: 45px;
-    border: none;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-    z-index: 999;
+
+#topBtn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:48px;
+    height:48px;
+    border:0;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    display:none;
+    z-index:999;
 }
 
-/* ANIMATION */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
+/* SCROLL ANIMATION */
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
 /* MOBILE */
-@media (max-width: 700px) {
 
-    nav {
-        padding: 16px 5%;
+@media(max-width:700px){
+
+    .menu-btn{
+        display:block;
     }
 
-    .menu-btn {
-        display: block;
+    .nav-links{
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background:var(--bg);
+        display:none;
+        flex-direction:column;
+        padding:25px;
+        border-bottom:1px solid var(--border);
     }
 
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        display: none;
-        flex-direction: column;
-        text-align: center;
-        padding: 25px;
-        background: rgba(8,11,20,0.96);
+    .nav-links.active{
+        display:flex;
     }
 
-    .nav-links.active {
-        display: flex;
+    .hero h1{
+        font-size:36px;
     }
 
-    .hero {
-        min-height: 90vh;
+    .cards{
+        grid-template-columns:1fr;
     }
 
-    .hero p {
-        font-size: 16px;
-    }
-
-    section {
-        padding: 70px 5%;
-    }
-
-    .section-title h2 {
-        font-size: 30px;
+    section{
+        padding:70px 20px;
     }
 }
 </style>
@@ -342,191 +390,263 @@ footer {
 <body>
 
 <nav>
-    <div class="logo">JAVLONBEK</div>
+<div class="nav-container">
 
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="logo">JAVLONBEK</div>
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#home" onclick="closeMenu()">Bosh sahifa</a></li>
-        <li><a href="#about" onclick="closeMenu()">Men haqimda</a></li>
-        <li><a href="#projects" onclick="closeMenu()">Loyihalar</a></li>
-        <li><a href="#contact" onclick="closeMenu()">Bog‘lanish</a></li>
-    </ul>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="nav-links" id="navLinks">
+<a href="#home" onclick="closeMenu()">Bosh sahifa</a>
+<a href="#about" onclick="closeMenu()">Men haqimda</a>
+<a href="#projects" onclick="closeMenu()">Loyihalar</a>
+<a href="#contact" onclick="closeMenu()">Aloqa</a>
+
+<button class="mode-btn" onclick="toggleMode()" id="modeBtn">
+🌙
+</button>
+</div>
+
+</div>
 </nav>
 
-<!-- HOME -->
-<header class="hero" id="home">
-    <div class="hero-content">
 
-        <div class="avatar">👨‍💻</div>
+<!-- HERO -->
 
-        <h1>Salom, men <span>Javlonbek</span> 👋</h1>
+<div class="hero" id="home">
 
-        <p>
-            Internet, texnologiya, sport va yangi narsalarni
-            o‘rganishga qiziqadigan oddiy insonman.
-        </p>
+<div class="hero-content">
 
-        <div class="buttons">
-            <a href="#about" class="btn primary">Men haqimda</a>
-            <a href="#projects" class="btn">Loyihalarim</a>
-        </div>
+<div class="avatar">👨‍💻</div>
 
-    </div>
-</header>
+<h1>Salom, men <span>Javlonbek</span> 👋</h1>
+
+<p>
+Internet, texnologiya, sport va yangi narsalarni o‘rganishga qiziqaman.
+Bu mening shaxsiy web-saytim.
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-primary" href="#about">
+Men haqimda
+</a>
+
+<a class="btn" href="#projects">
+Loyihalarim
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 
 <!-- ABOUT -->
-<section id="about">
 
-    <div class="section-title">
-        <h2>Men haqimda</h2>
-        <p>Mening qiziqishlarim va maqsadlarim</p>
-    </div>
+<section id="about" class="reveal">
 
-    <div class="cards">
+<h2 class="section-title">
+Men <span>haqimda</span>
+</h2>
 
-        <div class="card">
-            <div class="card-icon">🏋️</div>
-            <h3>Sport</h3>
-            <p>
-                Sport va bodybuilding orqali o‘zimni
-                yanada kuchli va intizomli qilishga harakat qilaman.
-            </p>
-        </div>
+<div class="cards">
 
-        <div class="card">
-            <div class="card-icon">💻</div>
-            <h3>Texnologiya</h3>
-            <p>
-                Internet, web-saytlar va yangi texnologiyalarni
-                o‘rganishga qiziqaman.
-            </p>
-        </div>
+<div class="card">
+<div class="card-icon">🏋️</div>
+<h3>Sport</h3>
+<p>
+Sport va fitness bilan shug‘ullanishni yaxshi ko‘raman.
+Maqsadim — sog‘lom va kuchli bo‘lish.
+</p>
+</div>
 
-        <div class="card">
-            <div class="card-icon">🚀</div>
-            <h3>Maqsadlar</h3>
-            <p>
-                Yangi narsalarni o‘rganish, loyihalar yaratish
-                va kelajakda katta natijalarga erishish.
-            </p>
-        </div>
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Texnologiya</h3>
+<p>
+Internet, web-saytlar va zamonaviy texnologiyalarni
+o‘rganishga qiziqaman.
+</p>
+</div>
 
-    </div>
+<div class="card">
+<div class="card-icon">🎯</div>
+<h3>Maqsadlar</h3>
+<p>
+Har kuni yangi bilim olish va kelajakda internet orqali
+o‘z loyihalarimni rivojlantirish.
+</p>
+</div>
+
+</div>
 
 </section>
+
 
 <!-- PROJECTS -->
-<section id="projects">
 
-    <div class="section-title">
-        <h2>Loyihalarim</h2>
-        <p>Men yaratgan va kelajakda yaratadigan loyihalar</p>
-    </div>
+<section id="projects" class="reveal">
 
-    <div class="cards">
+<h2 class="section-title">
+Mening <span>loyihalarim</span>
+</h2>
 
-        <div class="card project">
-            <span>01 • WEB</span>
-            <h3>Shaxsiy web-sayt</h3>
-            <p>
-                Bu sayt mening internetdagi shaxsiy sahifam.
-                Bu yerda men haqimdagi ma’lumotlar va loyihalarim joylashadi.
-            </p>
-        </div>
+<div class="cards">
 
-        <div class="card project">
-            <span>02 • ONLINE</span>
-            <h3>Online loyihalar</h3>
-            <p>
-                Internet orqali daromad qilish va yangi
-                online loyihalarni sinab ko‘rish.
-            </p>
-        </div>
+<div class="card">
+<div class="card-icon">🌐</div>
+<h3>Shaxsiy web-sayt</h3>
+<p>
+Hozir ko‘rib turgan saytim.
+HTML, CSS va JavaScript yordamida yaratilmoqda.
+</p>
+</div>
 
-        <div class="card project">
-            <span>03 • FUTURE</span>
-            <h3>Kelajakdagi loyihalar</h3>
-            <p>
-                Yangi g‘oyalar va foydali internet loyihalari
-                ustida ishlash.
-            </p>
-        </div>
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>Online loyihalar</h3>
+<p>
+Internet orqali daromad olish va yangi online
+loyihalarni o‘rganish.
+</p>
+</div>
 
-    </div>
+<div class="card">
+<div class="card-icon">🚀</div>
+<h3>Kelajakdagi loyihalar</h3>
+<p>
+Kelajakda yanada katta va foydali internet
+loyihalar yaratish rejam bor.
+</p>
+</div>
+
+</div>
 
 </section>
+
 
 <!-- CONTACT -->
-<section id="contact">
 
-    <div class="section-title">
-        <h2>Bog‘lanish</h2>
-        <p>Men bilan ijtimoiy tarmoqlar orqali bog‘lanishingiz mumkin</p>
-    </div>
+<section id="contact" class="contact reveal">
 
-    <div class="contact-box">
+<h2 class="section-title">
+Men bilan <span>bog‘lanish</span>
+</h2>
 
-        <h3>Javlonbek bilan bog‘laning 👋</h3>
+<p style="color:var(--muted); margin-bottom:30px;">
+Menga quyidagi tarmoqlar orqali yozishingiz mumkin.
+</p>
 
-        <div class="socials">
+<div class="socials">
 
-            <a class="social"
-               href="https://t.me/boykabo7"
-               target="_blank">
-                Telegram
-            </a>
+<a class="social" href="https://t.me/boykabo7" target="_blank">
+📱 Telegram
+</a>
 
-            <a class="social"
-               href="https://instagram.com/_qorapantera34"
-               target="_blank">
-                Instagram
-            </a>
+<a class="social" href="https://instagram.com/_qorapantera34" target="_blank">
+📸 Instagram
+</a>
 
-            <a class="social"
-               href="https://github.com/sheraliyevjavlonbek4-prog"
-               target="_blank">
-                GitHub
-            </a>
+<a class="social" href="https://github.com/sheraliyevjavlonbek4-prog" target="_blank">
+💻 GitHub
+</a>
 
-        </div>
-
-    </div>
+</div>
 
 </section>
 
+
 <footer>
-    <p>© 2026 Javlonbek. Barcha huquqlar himoyalangan.</p>
+© 2026 Javlonbek. Barcha huquqlar himoyalangan.
 </footer>
+
 
 <button id="topBtn" onclick="goTop()">↑</button>
 
+
 <script>
 
-function toggleMenu() {
+/* MOBILE MENU */
+
+function toggleMenu(){
     document.getElementById("navLinks").classList.toggle("active");
 }
 
-function closeMenu() {
+function closeMenu(){
     document.getElementById("navLinks").classList.remove("active");
 }
 
-window.onscroll = function() {
 
-    const button = document.getElementById("topBtn");
+/* DARK / LIGHT MODE */
 
-    if (document.documentElement.scrollTop > 300) {
-        button.style.display = "block";
-    } else {
-        button.style.display = "none";
+function toggleMode(){
+
+    document.body.classList.toggle("light");
+
+    const btn = document.getElementById("modeBtn");
+
+    if(document.body.classList.contains("light")){
+        btn.textContent = "☀️";
+        localStorage.setItem("theme","light");
+    }else{
+        btn.textContent = "🌙";
+        localStorage.setItem("theme","dark");
+    }
+}
+
+
+/* SAVED THEME */
+
+if(localStorage.getItem("theme") === "light"){
+    document.body.classList.add("light");
+    document.getElementById("modeBtn").textContent = "☀️";
+}
+
+
+/* SCROLL ANIMATION */
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+    reveals.forEach(element => {
+
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+
+        if(elementTop < windowHeight - 100){
+            element.classList.add("show");
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+
+
+/* TOP BUTTON */
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function(){
+
+    if(window.scrollY > 400){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
     }
 
-};
+});
 
-function goTop() {
+function goTop(){
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top:0,
+        behavior:"smooth"
     });
 }
 
@@ -534,11 +654,6 @@ function goTop() {
 
 </body>
 </html>
-
-
-
-
-
 
 
 
